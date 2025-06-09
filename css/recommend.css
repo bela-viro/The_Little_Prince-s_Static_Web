@@ -1,0 +1,461 @@
+/* 基础样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+}
+
+body {
+    background: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* 整体容器样式 */
+.hobbies {
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    overflow: hidden;
+}
+
+.stars::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 10px),
+        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 5px);
+    background-size: 550px 550px, 350px 350px;
+    background-position: 0 0, 40px 60px;
+    animation: stars 120s linear infinite;
+}
+
+@keyframes stars {
+    from { background-position: 0 0, 40px 60px; }
+    to { background-position: 550px 0, 390px 60px; }
+}
+
+/* 标题样式 */
+.hobbies_tit {
+    font-size: 2.2rem;
+    text-align: center;
+    margin: 30px 0 15px;
+    color: #f8f9fa;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+    font-weight: 500;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 1;
+}
+
+.titles {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #ffd166;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 1;
+}
+
+.hobbies_bgc {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.15;
+    z-index: -1;
+}
+
+.dropdown {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    z-index: 100;
+}
+
+.dropbtn {
+    background: rgba(255, 215, 0, 0.85);
+    color: #1a1a2e;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dropbtn:hover {
+    background: #ffd166;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.95);
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    right: 0;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #1a1a2e;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    font-weight: 500;
+}
+
+.dropdown-content a:hover {
+    background: #ffd166;
+    color: #1a1a2e;
+    padding-left: 20px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* 书籍展示区域 */
+.book {
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    margin-top: 40px;
+    position: relative;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.conBigTitle {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.conBigTitle h2 {
+    font-size: 2.5rem;
+    color: #1a1a2e;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.conBigTitle h2::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: -2%   ;
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(to right, #ffd166, #ef476f);
+    border-radius: 2px;
+}
+
+.conBigTitle p {
+    color: #6c757d;
+    font-size: 1.1rem;
+    margin-top: 15px;
+}
+
+.conBigTitle a {
+    color: #1a1a2e;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: 500;
+}
+
+.conBigTitle a:hover {
+    color: #ef476f;
+}
+
+/* 书籍展示主区域 */
+.show {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.sign {
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    background: #ef476f;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+/* 左侧书籍详情 */
+.showLeft {
+    flex: 1;
+    min-width: 300px;
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.showLeft h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #1a1a2e;
+}
+
+.showLeft h3 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.showLeft h3 a:hover {
+    color: #ef476f;
+}
+
+.author {
+    font-size: 1.1rem;
+    color: #6c757d;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.introduce {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    color: #495057;
+}
+
+.showLeft span {
+    display: block;
+    position: relative;
+    text-align: center;
+}
+
+.bookCover {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.bookCover:hover {
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.5);
+}
+
+.shadow {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    width: 80%;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    filter: blur(10px);
+    z-index: -1;
+}
+
+.showMid {
+    flex: 1;
+    min-width: 300px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.showMid li {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    list-style: none;
+}
+
+.showMid li:hover {
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.5);
+}
+
+.showMid li a {
+    display: block;
+    text-decoration: none;
+}
+
+.showMid li img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.bookName {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #1a1a2e;
+}
+
+.showMid li p:last-child {
+    color: #6c757d;
+    font-style: italic;
+}
+
+.showRight {
+    flex: 1;
+    min-width: 300px;
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.showRight h3 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: #1a1a2e;
+    text-align: center;
+    position: relative;
+}
+
+.showRight h3 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.showRight h3 a:hover {
+    color: #ef476f;
+}
+
+.crown {
+    display: inline-block;
+    width: 30px;
+    height: 20px;
+    background: gold;
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.showRight ul {
+    list-style: none;
+}
+
+.showRight li {
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.showRight li:hover {
+    background: rgba(255, 209, 102, 0.2);
+}
+
+.showRight dl {
+    display: flex;
+}
+
+.showRight dt {
+    min-width: 40px;
+    height: 40px;
+    background: #1a1a2e;
+    color: white;
+    display: flex;
+    margin-top: 8px;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 50%;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.showRight dd {
+    flex: 1;
+}
+
+.open {
+    background: rgba(239, 71, 111, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.open dd div {
+    display: flex;
+    gap: 15px;
+}
+
+.bookPic img {
+    width: 70px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.bookCon p {
+    display: flex;
+    flex-direction: column;
+}
+
+.bookCon a {
+    font-weight: bold;
+    color: #1a1a2e;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+
+.bookCon a:hover {
+    color: #ef476f;
+}
+
+.num {
+    color: #6c757d;
+    font-style: italic;
+}
+
+.close dd {
+    padding: 10px 0;
+}
+
+.bookName a {
+    color: #1a1a2e;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.bookName a:hover {
+    color: #ef476f;
+}
